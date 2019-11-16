@@ -7,11 +7,17 @@ window.addEventListener('load', ()=> {
             long = position.coords.longitude;
             lat = position.coords.latitude;
 
-            const api = `https://api.darksky.net/forecast/f00c94ee3dba375b6fbf4f29752e096f/${lat},${long}`;
+
+            //proxy that allows you to fix cors issue when fetching api in localhost.
+            const proxy = 'https://cors-anywhere.herokuapp.com/';
+            const api = `${proxy}https://api.darksky.net/forecast/f00c94ee3dba375b6fbf4f29752e096f/${lat},${long}`;
 
             fetch(api)
             .then(res => {
                 return res.json();
+            })
+            .then(data => {
+                console.log(data)
             })
     });//end of if statement
 
