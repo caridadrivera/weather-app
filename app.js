@@ -26,6 +26,10 @@ window.addEventListener('load', ()=> {
                 const {} = data.currently;
                 const { temperature, summary } = data.currently;
 
+                //set DOM elements from the API
+                temperatureDegree.textContent = temperature;
+
+
             });
     });//end of if statement
 
