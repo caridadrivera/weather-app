@@ -29,6 +29,7 @@ window.addEventListener('load', ()=> {
                 //set DOM elements from the API
                 tempDegree.textContent = temperature;
                 tempDescription.textContent = summary;
+                timezone.textContent = data.timezone;
 
 
             });
@@ -38,3 +39,5 @@ window.addEventListener('load', ()=> {
 
     
 });//end of window event listener
+
+module.exports = getCurrentPosition();
