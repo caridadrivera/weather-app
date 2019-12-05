@@ -4,7 +4,8 @@ window.addEventListener('load', ()=> {
     let tempDegree = document.querySelector('.temperature-degree');
     let tempDescription = document.querySelector('.temperature-description');
     let timezone = document.querySelector('.location-timezone');
-
+    let icon = document.getElementById('icon');
+    // console.log(icon)
 
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(position => {
@@ -21,7 +22,6 @@ window.addEventListener('load', ()=> {
                 return res.json();
             })
             .then(data => {
-                console.log(data)
 
                 const {} = data.currently;
                 const { temperature, summary } = data.currently;
@@ -40,4 +40,4 @@ window.addEventListener('load', ()=> {
     
 });//end of window event listener
 
-module.exports = getCurrentPosition();
+// module.exports = getCurrentPosition();
