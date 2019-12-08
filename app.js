@@ -22,10 +22,11 @@ window.addEventListener('load', ()=> {
                 return res.json();
             })
             .then(data => {
+                console.log(data)
 
-                const {} = data.currently;
+                // const {} = data.currently;
                 const { temperature, summary } = data.currently;
-
+                console.log(temperature)
                 //set DOM elements from the API
                 tempDegree.textContent = temperature;
                 tempDescription.textContent = summary;
@@ -36,7 +37,7 @@ window.addEventListener('load', ()=> {
     });//end of if statement
 
     }
-
+    
     
 });//end of window event listener
 
