@@ -25,12 +25,16 @@ window.addEventListener('load', ()=> {
                 console.log(data)
 
                 // const {} = data.currently;
-                const { temperature, summary } = data.currently;
+                const { temperature, summary, icon } = data.currently;
                 console.log(temperature)
                 //set DOM elements from the API
                 tempDegree.textContent = temperature;
                 tempDescription.textContent = summary;
                 timezone.textContent = data.timezone;
+                
+
+                //invoke setIcon function 
+                setIcon(icon, document.querySelector(".icon"))
 
 
             });
@@ -38,6 +42,14 @@ window.addEventListener('load', ()=> {
 
     }
     
+    function setIcon(icon, iconId){
+        const skycons = new Skycons({color: "pink"});
+        //my API icon description contains a -, that we want to replace with an _ because of the rules of the skycon
+        const currentIcon = icon.replace(/-/g, "_").toUpperCase();
+        skycons.play();
+        return skycons.set(iconId, Skycons[currentIcon]);
+
+    }//end of set icon function.
     
 });//end of window event listener
 
